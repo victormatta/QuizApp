@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_quiz/answer.dart';
+import 'package:flutter_quiz/body.dart';
 import 'package:flutter_quiz/congratulations.dart';
-import './question.dart';
 
 void main() {
   runApp(const QuizApp());
@@ -54,26 +53,16 @@ class _QuestionAppState extends State<QuizApp> {
 
   @override
   Widget build(BuildContext context) {
-    List answers =
-        selectedQuestion ? _questions[_questionSelect]["answer"] as List : [];
-    // List answerWidgets = answers.map((text) => Answer(text, _answer)).toList();
-    // List answers = [];
-    // for (var answerText in _questions[_questionSelect]["answer"] as List) {
-    //   answers.add(Answer(answerText, _answer));
-    // }
-
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
             title: const Text("QuizMR"),
           ),
           body: selectedQuestion
-              ? Column(
-                  children: [
-                    Question(_questions[_questionSelect]["text"].toString()),
-                    ...answers.map((text) => Answer(text, _answer)).toList(),
-                  ],
-                )
+              ? Body(
+                  questionSelect: _questionSelect,
+                  questions: _questions,
+                  answer: _answer)
               : const Congratulations()),
     );
   }
@@ -87,3 +76,11 @@ class QuizApp extends StatefulWidget {
     return _QuestionAppState();
   }
 }
+
+    // List answers =
+    //     selectedQuestion ? _questions[_questionSelect]["answer"] as List : [];
+    // List answerWidgets = answers.map((text) => Answer(text, _answer)).toList();
+    // List answers = [];
+    // for (var answerText in _questions[_questionSelect]["answer"] as List) {
+    //   answers.add(Answer(answerText, _answer));
+    // }
