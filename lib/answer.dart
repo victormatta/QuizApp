@@ -9,9 +9,9 @@ class Answer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 180,
-      height: 40,
-      margin: const EdgeInsets.all(10),
+      width: 230,
+      height: 52,
+      margin: EdgeInsets.all(15),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.blue,
@@ -20,7 +20,7 @@ class Answer extends StatelessWidget {
         onPressed: onSelect,
         child: Text(
           text,
-          style: const TextStyle(fontSize: 15),
+          style: const TextStyle(fontSize: 17),
           textAlign: TextAlign.center,
         ),
       ),

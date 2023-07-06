@@ -11,7 +11,7 @@ class Body extends StatelessWidget {
 
   final int questionSelect;
   final List<Map<String, Object>> questions;
-  final void Function() answer;
+  final void Function(int) answer;
 
   bool get selectedQuestion {
     return questionSelect < questions.length;
@@ -21,10 +21,16 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     List answers =
         selectedQuestion ? questions[questionSelect]["answer"] as List : [];
+
     return Column(
       children: [
-        Question(questions[questionSelect]["text"].toString()),
-        ...answers.map((text) => Answer(text, answer)).toList(),
+        Question(questions[questionSelect]["text"] as String),
+        ...answers.map((text) {
+          return Answer(
+            text["text"] as String,
+            () => answer(text["score"] as int),
+          );
+        }).toList(),
       ],
     );
   }
