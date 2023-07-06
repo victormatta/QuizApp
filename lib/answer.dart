@@ -11,7 +11,7 @@ class Answer extends StatelessWidget {
     return Container(
       width: 230,
       height: 52,
-      margin: EdgeInsets.all(15),
+      margin: const EdgeInsets.all(15),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.blue,

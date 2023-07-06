@@ -72,6 +72,7 @@ class _QuestionAppState extends State<QuizApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
           appBar: AppBar(
             title: const Text("QuizMR"),
